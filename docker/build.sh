@@ -4,7 +4,7 @@
 # By Frank Sundstrom
 # and now Joe Garcia
 
-TAG="Test"
+TAG="Test_web_app"
 
 cp -rf ../app .
 cp -f ../run.py .
