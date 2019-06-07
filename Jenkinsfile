@@ -6,7 +6,7 @@ throttle(['throttleDocker']) {
           checkout scm
           sh '''
             cd ./docker
-            ./docker/build.sh
+            ./build.sh
           '''
         }
         stage('Test'){
