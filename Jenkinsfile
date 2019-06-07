@@ -25,7 +25,9 @@ throttle(['throttleDocker']) {
         }
         stage('Deploy ') {
           sh '''
-             docker ps -q --filter "name=test_web_app" | grep -q . && docker stop test_web_app && docker rm -fv test_web_app
+             if [ "$(docker ps -q -f name=test_web_app)" ]; then
+                docker rm $(docker stop $(docker ps -a -q --filter ancestor=test_web_app --format="{{.ID}}"))
+             fi
              docker run -d -p 7880:7880 test_web_app
           '''
         }
