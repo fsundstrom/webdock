@@ -25,7 +25,7 @@ throttle(['throttleDocker']) {
         }
         stage('Deploy ') {
           sh '''
-             docker run test_web_app -p 7880:7880 -d
+             docker run -d -p 7880:7880 test_web_app
           '''
         }
       }
