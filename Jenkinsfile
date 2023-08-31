@@ -1,6 +1,9 @@
 throttle(['throttleDocker']) {
   node('docker') {
     wrap([$class: 'AnsiColorBuildWrapper']) {
+      sh '''
+        echo "this would be docker cleanup"
+      '''
       try{
         stage('Setup') {
           checkout scm
