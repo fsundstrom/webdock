@@ -1,4 +1,5 @@
 import os
+import sys
 import requests
 import json
 import re
@@ -15,11 +16,12 @@ def index():
   # ref http://werkzeug.pocoo.org/docs/wrappers/#werkzeug.wrappers.BaseRequest.remote_addr
 
   # get remote ip
+  aug = sys.argv[1] + ' ' +  sys.argv[2]
   ip = request.environ['REMOTE_ADDR']
   head = request.headers
  
   # retirm template with info 
-  return render_template("index.html", lookup_ip=ip, headers=head)
+  return render_template("index.html", lookup_ip=ip, headers=head, aug=aug)
 
 # Get Host info
 ##########################

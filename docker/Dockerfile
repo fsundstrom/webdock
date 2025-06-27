@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:3.14.0a3-bookworm
 ADD app /swtich-router-parser/app/
 ADD requirements.txt /swtich-router-parser/
 ADD run.py /swtich-router-parser/
@@ -7,6 +7,6 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8008
 
-CMD ["./run.py"]
+CMD ["python3", "run.py"]
 
 
